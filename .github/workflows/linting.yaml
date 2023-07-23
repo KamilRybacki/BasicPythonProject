@@ -5,6 +5,9 @@ concurrency:
   group: ${{ github.ref }}-linting
   cancel-in-progress: true
 
+env:
+  PYTHON_SOURCE_DIR: "./src"
+
 jobs:
   lint-markdown:
     runs-on: ubuntu-latest
@@ -31,7 +34,12 @@ jobs:
       - name: Lint files with Ruff
         uses: chartboost/ruff-action@v1
         with:
-          src: "./src"
+          src: ${{ env.PYTHON_SOURCE_DIR }}
           args: "--config .github/configs/ruff.toml"
       - name: Check types with mypy
-        run: mypy --config-file .github/configs/mypy.ini .
+        run: |
+          mypy \
+            --namespace-packages \
+            --explicit-package-bases \
+            --config-file .github/configs/mypy.ini \
+            $(find ${{ env.PYTHON_SOURCE_DIR }} -name '*.py')
