@@ -34,4 +34,4 @@ jobs:
           src: "./src"
           args: "--config .github/configs/ruff.toml"
       - name: Check types with mypy
-        run: mypy --config-file .github/configs/mypy.ini src/
+        run: mypy --config-file .github/configs/mypy.ini .
