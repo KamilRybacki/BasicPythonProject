@@ -34,6 +34,6 @@ jobs:
         uses: chartboost/ruff-action@v1
         with:
           src: "./src"
-          args: "--config .github/configs/ruff.yaml"
+          args: "--config .github/configs/ruff.toml"
       - name: Check types with mypy
         run: mypy --config-file .github/configs/mypy.ini src/
