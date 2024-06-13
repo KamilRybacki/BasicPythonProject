@@ -1,7 +1,7 @@
 [MESSAGES CONTROL]
 disable=
-  missing-docstring,
-  duplicate-code
+  missing-module-docstring,
+  logging-fstring-interpolation
 
 [FORMAT]
 max-line-length=192
