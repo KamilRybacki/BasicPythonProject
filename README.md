@@ -1,5 +1,11 @@
 # Basic Python Project
 
+<img
+    src="https://raw.githubusercontent.com/kamilrybacki/BasicPythonProject/media/banner.webp"
+    alt="Basic Python Project"
+    width="100%"
+/>
+
 ## Overview
 
 This project is a basic Python application designed to provide a template for building Python-based projects. It includes essential configurations for code linting, testing, and dependency management. The repository is structured to facilitate easy project setup and maintain good coding practices.
@@ -25,7 +31,6 @@ This project is a basic Python application designed to provide a template for bu
 └── workflows/
 └── lint-code.yml # GitHub Actions workflow for code linting
 ```
-
 
 ## Getting Started
 
