@@ -92,6 +92,75 @@ flake8 src/
 mypy src/
 ```
 
+## Enforced code quality standards
+
+## Code Quality Standards
+
+The project enforces several code quality standards to ensure consistent and high-quality code.
+The standards are defined through the use of tools such as Flake8, Pylint, and Mypy.
+In other cases - the official Python style guide (PEP 8) is followed.
+
+Below are the details of the enforced standards:
+
+### Flake8
+
+Flake8 is used to enforce coding style guidelines. The key configuration from the `.flake8` file includes:
+
+- **Maximum Line Length**: The maximum allowed line length is set to 192 characters.
+  
+  ```ini
+  [flake8]
+  max-line-length = 192
+  ```
+
+### Pylint
+
+Pylint is used for static code analysis to identify errors and enforce a coding standard. The `.pylintrc` file specifies several rules and conventions:
+
+- **Disabled Checks**:
+  - `missing-module-docstring`: Modules do not require a docstring.
+  - `missing-function-docstring`: Functions do not require a docstring.
+  - `logging-fstring-interpolation`: Allows the use of f-strings in logging statements.
+
+- **Maximum Line Length**: Consistent with Flake8, the maximum allowed line length is set to 192 characters.
+  
+- **Naming Conventions**:
+  - **Function and Method Names**: Must follow the pattern `[a-z][a-z0-9_]{2,72}` or `_[a-z0-9_]*`.
+  - **Variable Names**: Must follow the pattern `[a-z][a-z0-9_]{2,72}` or `_[a-z0-9_]*`.
+
+  **Note**: The pattern corresponds to the so-called "snake_case" naming convention.
+
+  ```ini
+  [MESSAGES CONTROL]
+  disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    logging-fstring-interpolation
+
+  [FORMAT]
+  max-line-length=192
+
+  [BASIC]
+  function-rgx=(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$
+  method-rgx=(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$
+  variable-rgx=(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$
+  ```
+
+### Mypy
+
+Mypy is used for type checking to ensure that the code adheres to the specified type annotations. The `mypy.ini` file includes:
+
+- **Python Version**: The code is checked against Python version 3.12.
+- **Exclusions**: Directories like `env/` and `build/` are excluded from type checking.
+
+  ```ini
+  [mypy]
+  python_version = 3.12
+  exclude = ['env/', 'build/']
+  ```
+
+These configurations help maintain a clean, readable, and consistent codebase while ensuring compliance with specified coding standards.
+
 ## Continuous Integration
 
 The project includes a GitHub Actions workflow (`.github/workflows/lint-code.yml`) to automatically lint code on every push or pull request.
