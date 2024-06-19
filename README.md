@@ -27,16 +27,18 @@ This project is a basic Python application designed to provide a template for bu
 │ └── main.py # Main Python source file
 ├── tests/
 │ └── requirements.txt # List of dependencies for testing
-└── .github/
-└── workflows/
-└── lint-code.yml # GitHub Actions workflow for code linting
+│ └── test_main.py # Test file for main.py
+├── .github/
+│ └── workflows/
+│   └── lint-code.yml # GitHub Actions workflow for code linting
+│   └── code-tests.yml # GitHub Actions workflow for running tests
 ```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.7 or higher
+- Python 3.12 or higher
 - `pip` (Python package installer)
 - `virtualenv` (optional but recommended)
 
