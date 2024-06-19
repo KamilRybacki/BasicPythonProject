@@ -92,6 +92,9 @@ flake8 src/
 mypy src/
 ```
 
+Any auxiliary libraries that are used **only** for purposes of type-checking and/or linting, should be placed
+in the [`.github/workflows/requirements.txt` file].
+
 ## Enforced code quality standards
 
 ## Code Quality Standards
@@ -169,4 +172,7 @@ Additionally, the project includes a GitHub Actions workflow (`.github/workflows
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE] file for details.
+
+[`.github/workflows/requirements.txt` file]: .github/workflows/requirements.txt
+[LICENSE]: LICENSE
