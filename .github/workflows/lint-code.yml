@@ -30,12 +30,12 @@ jobs:
           ruff \
             check \
             --config \
-              ${{ github.workspace }}/ruff.ini \
+              ${{ github.workspace }}/pyproject.toml \
             ${{ steps.find.outputs.files }}
       -
         name: Type check with mypy
         run: |
           mypy \
             --config-file \
-              ${{ github.workspace }}/mypy.ini \
+              ${{ github.workspace }}/pyproject.toml \
             ${{ steps.find.outputs.files }}
