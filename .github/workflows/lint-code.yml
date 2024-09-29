@@ -28,6 +28,7 @@ jobs:
         name: Lint using Ruff
         run: |
           ruff \
+            check \
             --config-file \
               ${{ github.workspace }}/ruff.ini \
             ${{ steps.find.outputs.files }}

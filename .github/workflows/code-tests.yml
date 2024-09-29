@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: 3.12
       -
+        name: Install flit
+        run: pip install flit
+      -
         name: Install dependencies
         run: make install-dev
       -
