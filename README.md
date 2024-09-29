@@ -121,11 +121,17 @@ ignore = [  # Ignored linting rules
 select = ["C90", "I", "E", "F", "N", "B", "A", "Q", "W", "RUF". "TID"]  # Selected linting rules
 exclude = ["env/", "build/"]
 
+[tool.ruff.lint.mccabe]
+max-complexity = 5  # Maximum cyclomatic complexity set to 5
+
 [tool.ruff.lint.isort]
-force-wrap-aliases = true
+force-wrap-aliases = true  # Force wrapping of import aliases
 
 [tool.ruff.lint.flake8-quotes]
-docstring-quotes = "double"
+docstring-quotes = "double"  # Double quotes for docstrings
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"  # Ban all relative imports - use absolute imports
 ```
 
 The selected linting rules are:
