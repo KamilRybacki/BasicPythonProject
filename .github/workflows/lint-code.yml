@@ -26,18 +26,11 @@ jobs:
         run: |
           echo "::set-output name=files::$(find . -name '*.py' -not -path './.venv/*' -not -path './.github/*' -not -path './tests/*')"
       -
-        name: Lint with flake8
+        name: Lint using Ruff
         run: |
-          flake8 \
-            --config \
-              ${{ github.workspace }}/.flake8 \
-            ${{ steps.find.outputs.files }}
-      -
-        name: Lint with pylint
-        run: |
-          pylint \
-            --rcfile \
-              ${{ github.workspace }}/.pylintrc \
+          ruff \
+            --config-file \
+              ${{ github.workspace }}/ruff.ini \
             ${{ steps.find.outputs.files }}
       -
         name: Type check with mypy

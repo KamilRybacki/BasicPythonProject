@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yourpackage"
+description = "Your package description"
+authors = [
+    { name="Your Name", email="your.email@example.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+license = { file="LICENSE" }
+readme = "README.md"
+requires-python = ">=3.8"
+dynamic = ["version"]
+
+dependencies = []
+
+[project.optional-dependencies]
+develop = [
+  "pytest==8.3.3"
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "yourpackage.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["yourpackage*"]
+namespaces = false
+
+[tool.pytest.ini_options]
+addopts = "--capture=no"
+log_cli = true
+log_level = "INFO"
+log_cli_level = "INFO"
+log_cli_format = "%(message)s"
+
+[tool.mypy]
+python_version = "3.12"
+exclude = ["env/", "build/"]
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_unused_ignores = true
+warn_return_any = true
+show_error_codes = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+indent-width = 4
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+docstring-code-format = true
+docstring-code-line-length = 20
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+ignore = [
+    "D100",  # missing-module-docstring
+    "D101",  # missing-class-docstring
+    "D102",  # missing-function-docstring
+    "D103",  # missing-function-docstring
+    "F401",  # Unused imports (can be adjusted based on need)
+]
+
+select = ["I", "E", "F", "N", "B", "A", "Q", "W", "RUF", "TID"]
+exclude = ["env/", "build/"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+[tool.ruff.lint.isort]
+force-wrap-aliases = true
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
