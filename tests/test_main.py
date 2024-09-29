@@ -1,3 +1,3 @@
 
-def test_some_function():
+def test_some_function() -> None:
     assert len("hello") == 5

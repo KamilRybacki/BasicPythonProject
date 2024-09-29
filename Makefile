@@ -21,7 +21,7 @@ install-dev:
 	@echo "Installing project with development dependencies..."
 	@flit install --deps develop --symlink
 
-quality-check:
+lint:
 	@echo "Running quality checks..."
 	@pre-commit run --all-files
 
