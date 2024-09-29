@@ -18,17 +18,11 @@ jobs:
           python-version: 3.12
       -
         name: Install dependencies
-        run: |
-          pip \
-            install \
-              -r \
-                tests/requirements.txt
+        run: make install-dev
       -
         name: Run integration tests 🩺
         run: |
           python \
             -m \
               pytest \
-                -c \
-                  pytest.ini \
                 tests/

@@ -20,9 +20,11 @@ dynamic = ["version"]
 dependencies = []
 
 [project.optional-dependencies]
-develop = [
+develop = []
+test = [
   "pytest==8.3.3"
 ]
+doc = []
 
 [tool.setuptools.dynamic]
 version = { attr = "yourpackage.__version__" }
