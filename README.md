@@ -30,6 +30,21 @@ This project is a basic Python application designed to provide a template for bu
     └── requirements.txt # List of dependencies for project utilities (for local and CI use)
 ```
 
+### Package dependencies
+
+The package dependencies are managed using the `pyproject.toml` file. This file defines the following types of dependencies:
+
+- **Main package dependencies**: Packages required for the main application (*project.dependencies*),
+- **Development dependencies**: Packages required for development and testing purposes (*project.optional_dependencies.develop*),
+- **Test suite dependencies**: Packages required for running tests (*project.optional_dependencies.test*),
+- **Documentation dependencies**: Packages required for generating documentation (*project.optional_dependencies.docs*).
+
+To install explicitly one or more of these dependencies, use the following command:
+
+```bash
+flit install --deps=<dependency_type>
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -70,15 +85,8 @@ python src/main.py
 To run linters manually:
 
 ```bash
-pylint src/
-flake8 src/
-mypy src/
+make lint
 ```
-
-Any auxiliary libraries that are used **only** for purposes of type-checking and/or linting, should be placed
-in the [`.github/workflows/requirements.txt` file].
-
-## Enforced code quality standards
 
 ## Code Quality Standards
 
